@@ -6,17 +6,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class ProductDto {
+public class ProductWithMustHaveDto {
+
+	private Long id;
 	
-
-
 	@NotBlank
 	@Size(min = 2, max = 100)
 	private String name;
 	
 	private float price;
 	
-
+private boolean mustHave;
 	
 	@NotNull
 	@Size(min = 1)
@@ -45,6 +45,22 @@ public class ProductDto {
 
 	public void setCategories(List<CategoryMustHaveDto> categories) {
 		this.categories = categories;
+	}
+
+	public boolean isMustHave() {
+		return mustHave;
+	}
+
+	public void setMustHave(boolean mustHave) {
+		this.mustHave = mustHave;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
